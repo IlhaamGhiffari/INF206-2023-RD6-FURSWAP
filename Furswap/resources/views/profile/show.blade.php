@@ -9,11 +9,12 @@
      
               <div class="basis-full h-96 left-16 top-16 mt-16 px-auto">
                     <p class="w-[120px] h-[30px] mx-auto font-bold font-sans text-2xl">Info Akun</p>
-                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[30px] mt-[25px] px-5" value="Name" type="text">
-                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[30px] mt-[25px] px-5" value="Addres" type="text">
-                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[30px] mt-[25px] px-5" value="Email" type="text">
-                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[30px] mt-[25px] px-5" value="ID Number" type="text">
-                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[30px] mt-[25px] px-5" value="Phone Number" type="text">
+                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[30px] mt-[25px] px-5" value="{{ $user->name }}" type="text">
+                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[30px] mt-[25px] px-5" value="{{ $user->address}}" type="text">
+                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[30px] mt-[25px] px-5" value="{{ $user->email}}" type="text">
+                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[30px] mt-[25px] px-5" value="{{ $user->phone}}" type="text">
+                    
+                    <button class="flex bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-[45px] mx-auto mt-10 ">Save</button>
                 </div>
         </div>
         
