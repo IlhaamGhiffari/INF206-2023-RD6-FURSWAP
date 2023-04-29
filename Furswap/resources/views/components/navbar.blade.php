@@ -1,5 +1,5 @@
 <div class="grid grid-cols-10 bg-[#003F62] items-center p-5">
-    <img class="container scale-[0.75] col-start-2" src="{{asset('images/logo.png')}}">
+        <a href="{{url('/dashboard')}}"><img class="container scale-[0.75] col-start-2" src="{{asset('images/logo.png')}}"></a>
     <form class="max-w-[1000px] col-start-3 col-end-5">   
             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
             <div class="relative">
@@ -10,7 +10,7 @@
                 <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-[#EDA415] hover:bg-[#F79427] focus:ring-[#EDA415] focus:outline-none font-medium rounded-lg text-sm px-4 py-2">Search</button>
             </div>
     </form>
-    <div class="col-start-7 text-white font-semibold">Chat</div>
+    <a href="{{url('/Chat')}}"  class="col-start-7 text-white font-semibold">Chat</a>
     <div class="col-start-8 max-w-auto text-white items-start font-semibold">transaksi</div>
     <div class="col-start-9 col-span-2 gap-28 justify-center text-white">@if (Route::has('login'))
             @auth
