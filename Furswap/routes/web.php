@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::put('/users/{user}', [UserController::class, 'update'])->name('user.update');
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 
 Route::middleware([
     'auth:sanctum',
