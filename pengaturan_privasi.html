@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Barter Furniture - Pengaturan Privasi</title>
+	<script>
+		function savePrivacySettings() {
+			// Menyimpan preferensi privasi pengguna ke server
+			var publicProfile = document.getElementById('public-profile-checkbox').checked;
+			var tradeHistory = document.getElementById('trade-history-checkbox').checked;
+			// Kirim data ke server menggunakan AJAX atau teknologi serupa
+		}
+	</script>
+</head>
+<body>
+	<h1>Barter Furniture - Pengaturan Privasi</h1>
+	<h2>Profil Publik</h2>
+	<p>Anda dapat memilih apakah profil Anda dapat dilihat oleh pengguna lain.</p>
+	<label for="public-profile-checkbox">Profil Saya Publik</label>
+	<input type="checkbox" id="public-profile-checkbox">
+	<h2>Riwayat Tukar-menukar</h2>
+	<p>Anda dapat memilih apakah riwayat tukar-menukar Anda dapat dilihat oleh pengguna lain.</p>
+	<label for="trade-history-checkbox">Riwayat Tukar-menukar Saya Publik</label>
+	<input type="checkbox" id="trade-history-checkbox">
+	<button onclick="savePrivacySettings()">Simpan</button>
+</body>
+</html>
