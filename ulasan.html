@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Barter Furniture - Ulasan</title>
+	<style>
+		/* CSS Styling untuk Ulasan */
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		li {
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			padding: 10px;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+
+		input[type="text"], textarea {
+			width: 100%;
+			padding: 5px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			font-size: 16px;
+		}
+
+		button[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 15px;
+			border: none;
+			border-radius: 3px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+
+		button[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<h1>Ulasan Barang Furnitur</h1>
+
+	<h2>Tulis Ulasan Anda</h2>
+	<form>
+		<label for="nama">Nama Anda:</label>
+		<input type="text" id="nama" name="nama">
+
+		<label for="judul">Judul Ulasan:</label>
+		<input type="text" id="judul" name="judul">
+
+		<label for="ulasan">Ulasan/Penilaian tentang product:</label>
+		<textarea id="ulasan" name="ulasan"></textarea>
+
+		<button type="submit">Kirim Ulasan</button>
+	</form>
+
+	<h2>Ulasan Pengguna Lainnya</h2>
+	<ul id="daftar-ulasan">
+		<!-- Ulasan akan ditambahkan oleh Javascript -->
+	</ul>
+
+	<script>
+		// Script Javascript untuk Menambahkan Ulasan
+		const form = document.querySelector('form');
+		const ulasan = document.querySelector('#daftar-ulasan');
+
+		form.addEventListener('submit', function(e) {
+			e.preventDefault();
+
+			const nama = document.querySelector('#nama').value;
+			const judul = document.querySelector('#judul').value;
+			const isi = document.querySelector('#ulasan').value;
+
+			// Buat elemen HTML untuk menampilkan ulasan baru
+			const li = document.createElement('li');
+			const h3 = document.createElement('h3');
+			const p1 = document.createElement('p');
+			const p2 = document.createElement('p');
+
+			h3.textContent = judul;
+			p1.textContent = nama;
+			p2.textContent = isi;
+
+			li.appendChild(h3);
+			li.appendChild(p1);
+			li.appendChild(p2);
+
+			ulasan.appendChild(li);
+
+			// Reset form setelah mengirim ulasan
+			form.reset();
+		});
+	</script>
+</body>
+</html>
