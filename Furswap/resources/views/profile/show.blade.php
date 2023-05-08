@@ -1,37 +1,37 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="grid justify-items-start font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Profile') }}
         </h2>
     </x-slot>
     
         <div class="flex">
-          <img src="\img\defaultProfile.png"class="flex-none mt-16 ml-16 h-[300px] w-[300px] rounded-[25px] bg-white border-[0.5px] border-black"></img>
+          <img src="\img\defaultProfile.png"class="flex-none drop-shadow-lg mt-24 ml-16 h-[300px] w-[300px] rounded-[20px] bg-white "></img>
      
             <form class="basis-full h-96 left-16 top-16 mt-16 px-auto" method="POST" action="{{ route('user.update', $user->id) }}">
                     @csrf
                     @method('PUT')
                 <div class="mb-[25px]">
                     <label class="ml-[120px] mt-[25px]">Name:</label>
-                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[30px] px-5" type="text" name="name" value="{{ $user->name }}" />
+                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[15px] px-5" type="text" name="name" value="{{ $user->name }}" />
                 </div>
 
                 <div class="mb-[25px]">
                     <label class="ml-[120px] mt-[25px]">Email:</label>
-                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[30px] px-5" type="email" name="email" value="{{ $user->email }}" />
+                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[15px] px-5" type="email" name="email" value="{{ $user->email }}" />
                 </div>
                 
                 <div class="mb-[25px]">
                     <label class="ml-[120px] mt-[25px]">Address:</label>
-                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[30px] px-5" type="address" name="address" value="{{ $user->address }}" />
+                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[15px] px-5" type="address" name="address" value="{{ $user->address }}" />
                 </div>
                 
                 <div class="mb-[25px]">
                     <label class="ml-[120px] mt-[25px]">Phone Number:</label>
-                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[30px] px-5" type="phone" name="phone" value="{{ $user->phone }}" />
+                    <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[15px] px-5" type="phone" name="phone" value="{{ $user->phone }}" />
                 </div>
 
-                    <button  class="flex bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-[45px] mx-auto mt-10 " type="submit">Update</button>
+                    <button  class="flex bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-[15px] mx-auto mt-10 " type="submit">Update</button>
 
                 
             </form>
