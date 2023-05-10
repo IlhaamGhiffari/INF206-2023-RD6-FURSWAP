@@ -71,9 +71,11 @@
     <!--carousel end-->
 
             
-            <button class="flex items-center">
-                    <img class="scale-[0.5]" src="{{asset('images/plus-sign.png')}}">
-            </button>
+    <a href="{{ url('/login') }}">
+        <button class="flex items-center">
+                <img class="scale-[0.5]" src="{{asset('images/plus-sign.png')}}">
+        </button>
+    </a>
         </div>
     
     <div class="mx-10">
