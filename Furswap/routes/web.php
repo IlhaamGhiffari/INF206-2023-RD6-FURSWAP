@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProdukController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,11 @@ Route::put('/users/{user}', [UserController::class, 'update'])->name('user.updat
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+Route::resource('/produks', ProdukController::class);
+
 
 
 

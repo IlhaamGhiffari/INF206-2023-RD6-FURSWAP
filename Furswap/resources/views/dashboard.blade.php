@@ -58,9 +58,11 @@
     </div>
 <!--carousel end-->
                 
-                <button class="flex items-center">
-                        <img class="scale-[0.5]" src="{{asset('images/plus-sign.png')}}">
-                </button>
+                <a href="{{ config('')}}/produks/create">
+                    <button class="flex items-center">
+                            <img class="scale-[0.5]" src="{{asset('images/plus-sign.png')}}">
+                    </button>
+                </a>
             </div>
         
             
