@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
 
@@ -24,7 +25,7 @@
                             <td>{{ $product->nama }}</td>
                             <td class="inner-table">{{ $product->jenis }}</td>
                             <td class="inner-table">
-                                <img src="images/{{$product->foto }}>
+                                <img src="{{ asset('fotoBarang/'.$product->foto) }}" alt="" class="w-4/12">
                             </td>
                             <td class="inner-table">{{ $product->deskripsi }}</td>
                         </tr>
