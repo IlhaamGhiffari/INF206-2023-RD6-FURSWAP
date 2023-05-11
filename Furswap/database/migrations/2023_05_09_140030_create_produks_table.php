@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('jumlah');
             $table->text('Deskripsi');
             $table->string('foto');
+            $table->boolean('tersedia');
             $table->timestamps();
         });
     }

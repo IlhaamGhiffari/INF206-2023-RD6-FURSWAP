@@ -5,12 +5,16 @@
         </h2>
     </x-slot>
     
+    <form  method="POST" action="{{ route('user.update', $user->id) }}" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
         <div class="flex">
-          <img src="\img\defaultProfile.png"class="flex-none drop-shadow-lg mt-24 ml-16 h-[300px] w-[300px] rounded-[20px] bg-white "></img>
-     
-            <form class="basis-full h-96 left-16 top-16 mt-16 px-auto" method="POST" action="{{ route('user.update', $user->id) }}">
-                    @csrf
-                    @method('PUT')
+            
+            <div>
+            <img src="{{ asset('fotoProfile/'.$user->profile_photo_path) }}" alt="foto profile"class="flex-none drop-shadow-lg mt-24 ml-16 h-[300px] w-[300px] rounded-[20px] bg-white "><input type="file" class="flex-none drop-shadow-lg ml-16 rounded-full" name="profile_photo_path"></img>
+        </div>
+            <div class="basis-full h-96 left-16 top-16 mt-16 px-auto">
+              
                 <div class="mb-[25px]">
                     <label class="ml-[120px] mt-[25px]">Name:</label>
                     <input class="border border-black ml-28 w-10/12 h-[45px] rounded-[15px] px-5" type="text" name="name" value="{{ $user->name }}" />
@@ -34,8 +38,26 @@
                     <button  class="flex bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-[15px] mx-auto mt-10 " type="submit">Update</button>
 
                 
-            </form>
+            </div>
         </div>
+    </form>
+
+
+    @forelse ($produks as $produk)
+    <tr>
+        <td>{{ $produk->nama }}</td>
+        <td>{{ $produk->jenis }}</td>
+        <td>{{ $produk->jumlah }}</td>
+        <td>{{ $produk->Deskripsi }}</td>
+        <td><img src="{{ asset('fotoBarang/'.$produk->foto) }}" alt="" class="w-96"></td>
+      <td>{{ $produk->tersedia ? 'Yes' : 'No' }}</td>
+        <td class="actions">
+      
+            
+        </td>
+    </tr>
+@empty
+@endforelse
         
         <div class="flex flex-col mt-16 px-16">
             <div class="w-52 h-16 bg-[#003f62] rounded-[15px] mb-4">

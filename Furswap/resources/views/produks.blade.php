@@ -1,34 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
+<x-app-layout>
 
-    <div class="flex-center position-ref full-height">
-        <div class="content">
-            <h1>Here's a list of available products</h1>
-            <table>
-                <thead>
-                    <td>Nama</td>
-                    <td>jenis</td>
-                    <td>foto</td>
-                    <td>deskripsi</td>
-                </thead>
-                <tbody>
-                    @foreach ($allProducts as $product)
-                        <tr>
-                            <td>{{ $product->nama }}</td>
-                            <td class="inner-table">{{ $product->jenis }}</td>
-                            <td class="inner-table">
-                                <img src="{{ asset('fotoBarang/'.$product->foto) }}" alt="" class="w-4/12">
-                            </td>
-                            <td class="inner-table">{{ $product->deskripsi }}</td>
-                        </tr>
-                    @endforeach
-</body>
-</html>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nama Barang</th>
+            <th>Jenis Barang</th>
+            <th>Jumlah</th>
+            <th>Deskripsi</th>
+            <th>Foto</th>
+            <th>tersedia</th>
+            <th class="Actions">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @forelse ($produks as $produk)
+        <tr>
+            <td>{{ $produk->nama }}</td>
+            <td>{{ $produk->jenis }}</td>
+            <td>{{ $produk->jumlah }}</td>
+            <td>{{ $produk->Deskripsi }}</td>
+            <td><img src="{{ asset('fotoBarang/'.$produk->foto) }}" alt="" class="w-96"></td>
+            <td>{{ $produk->tersedia ? 'Yes' : 'No' }}</td>
+        </tr>
+    @empty
+    @endforelse
+
+
+</x-app-layout>

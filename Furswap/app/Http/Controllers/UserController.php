@@ -14,6 +14,8 @@ class UserController extends Controller
             'email' => $request->email,
             'address' => $request->address,
             'phone' => $request->phone,
+            
+        
         ]);
         
         return redirect()->back()->with('success', 'User updated successfully.');

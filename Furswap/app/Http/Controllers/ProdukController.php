@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\produk;
+use Illuminate\Support\Facades\DB;
 
 class ProdukController extends Controller
 {
@@ -12,9 +13,9 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $products = produk::all();
-
-        return view('produks', ['allProducts' => $products]);
+        $produks=DB::table('produks')->get();
+            return view('produks')
+            ->with('produks',$produks);
     }
 
     /**
@@ -35,6 +36,7 @@ class ProdukController extends Controller
         $produk->jenis = $request->input('jenis');
         $produk->jumlah = $request->input('jumlah');
         $produk->deskripsi = $request->input('deskripsi');
+        $produk->tersedia = $request->input('tersedia', true);
     
         if ($request->hasFile('foto')) {
             $request->file('foto')->move('fotoBarang/', $request->file('foto')->getClientOriginalName());    
@@ -56,7 +58,7 @@ class ProdukController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
@@ -64,7 +66,7 @@ class ProdukController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        
     }
 
     /**
