@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProdukController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +24,20 @@ Route::get('/', function () {
 
 
 
+Route::resource('/produks', ProdukController::class);
+
+Route::get('/produk/{id}', [ProdukController::class, 'show'])->name('produk.show');
+
+
+
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+        return view('produks');
+    })->name('produks');
 });
