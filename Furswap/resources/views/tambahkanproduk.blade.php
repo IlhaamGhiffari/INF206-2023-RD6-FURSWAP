@@ -14,7 +14,7 @@
 
 
     <div class="container mx-auto w-4/5">
-        <form method="POST" action="{{ config('') }}/produks">
+        <form method="POST" action="{{ config('') }}/produks" enctype="multipart/form-data">
             @csrf
             <div class="flex text-3xl justify-center ">Tambahkan Produk</div>
 

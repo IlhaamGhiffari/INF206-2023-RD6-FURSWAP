@@ -29,20 +29,23 @@ class ProdukController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    $produk = new Produk();
-    $produk->nama = $request->input('nama');
-    $produk->jenis = $request->input('jenis');
-    $produk->jumlah = $request->input('jumlah');
-    $produk->deskripsi = $request->input('deskripsi');
-    $produk->foto = $request->input('foto');
-
-    $produk->save();
-
-    return redirect('/dashboard');
-}
-
-
+    {
+        $produk = new Produk();
+        $produk->nama = $request->input('nama');
+        $produk->jenis = $request->input('jenis');
+        $produk->jumlah = $request->input('jumlah');
+        $produk->deskripsi = $request->input('deskripsi');
+    
+        if ($request->hasFile('foto')) {
+            $request->file('foto')->move('fotoBarang/', $request->file('foto')->getClientOriginalName());    
+            $produk->foto = $request->file('foto')->getClientOriginalName();
+        }
+    
+        $produk->save();
+    
+        return redirect('/dashboard');
+    }
+    
     
     
     
