@@ -15,6 +15,13 @@ class Produk extends Model
         'jumlah',
         'deskripsi',
         'foto',
+        'user_id',
     ];
+
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
 
 }

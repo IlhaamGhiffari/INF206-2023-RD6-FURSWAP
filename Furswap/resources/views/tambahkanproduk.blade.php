@@ -25,7 +25,7 @@
             </div>
 
             <div class="form-input">
-                <x-label2 for="jenis" value="{{ __('Jenis Prouk') }}" />
+                <x-label2 for="jenis" value="{{ __('Jenis Produk') }}" />
                 <x-input2 id="jenis" class="block mt-1 w-full" type="text" name="jenis" :value="old('jenis')"
                     required autocomplete="jenis" />
             </div>

@@ -1,3 +1,7 @@
+<?php
+use App\Models\produk;
+$allProduct = produk::all();
+?>
 <x-app-layout>
 
     <body>
@@ -6,33 +10,19 @@
                
      <!--carousel start-->
      <div id="default-carousel" class="relative w-2/3 shadow-lg rounded-xl grid grid-cols-2" data-carousel="slide">
-        <div class="grid grid-rows-2 grid-cols-2">
-            <strong class="text-[#003F62] text-[3rem] flex justify-center col-span-2 items-end">Sofa Oriental</strong>
-            <button class="flex justify-end bg-[#EDA415] rounded-3xl m-auto p-3 max-h-[4rem] text-white text-3xl items-center">Tawar</button>
-            <button class="flex justify-start bg-[#EDA415] rounded-3xl m-auto p-3 max-h-[4rem] text-white text-3xl items-center ">Lihat</button>
+        <div class="flex justify-center items-center">
+            <strong class="text-[#003F62] text-[3rem] flex justify-center col-span-2 items-end">FURSWAP Tawarkan Barangmu</strong>
         </div>
         <!-- Carousel wrapper -->
         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                    @foreach ($allProduct as $product)
             <!-- Item 1 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="{{asset('images/sofa.jpg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <img src="{{ asset('fotoBarang/' . $product->foto) }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
+            @endforeach
             <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="{{asset('images/sofa.jpg')}}"  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <!-- Item 3 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="{{asset('images/sofa.jpg')}}"  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <!-- Item 4 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="{{asset('images/sofa.jpg')}}"  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <!-- Item 5 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="{{asset('images/sofa.jpg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
+          
         </div>
         <!-- Slider indicators -->
         <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
@@ -66,19 +56,25 @@
             </div>
         
             
-        <div class="flex">
-            <div class=" mx-auto my-10 card rounded-xl w-96 h-96 bg-white drop-shadow-lg flex justify-center">
-                <img class="p-2" src="{{asset('images/sofa.jpg')}}">
+            <div class="mx-10">
+                <strong class="text-[#003F62] mx-auto flex justify-start text-[3rem]">Barang Bekas</strong>
+                <div class="flex">
+                    @foreach ($allProduct as $product)
+                    <div class=" mx-auto my-10 card rounded-xl w-96 h-96 bg-white drop-shadow-lg flex justify-center">
+                        <div>
+                            @if ($product->foto)
+                            <div>
+                                <img class="max-h-80" src="{{ asset('fotoBarang/' . $product->foto) }}" alt="Product Photo">
+                                <div class="flex  justify-center">{{ $product->nama }}</div>
+                            </div>
+                        @endif
+                            <a href="{{ route('produk.show', $product->id) }}">View Details</a>
+                        </div>
+                        <hr>
+                    </div>
+                    @endforeach
+                  
+                </div>
             </div>
-            <div class=" mx-auto my-10 card rounded-xl w-96 h-96 bg-white drop-shadow-lg flex justify-center">
-                <img class="p-1" src="{{asset('images/sofa.jpg')}}">
-            </div>
-            <div class=" mx-auto my-10 card rounded-xl w-96 h-96 bg-white drop-shadow-lg flex justify-center">
-                <img class="p-1"src="{{asset('images/sofa.jpg')}}">
-            </div>
-            <div class=" mx-auto my-10 card rounded-xl w-96 h-96 bg-white drop-shadow-lg flex justify-center">
-                <img class="p-1" src="{{asset('images/sofa.jpg')}}">
-            </div>
-        </div>
     </body>
 </x-app-layout>
