@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\produk;
+use App\Models\user;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ProdukController extends Controller
 {
@@ -12,9 +15,7 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $products = produk::all();
-
-        return view('produks', ['allProducts' => $products]);
+        return view('dashboard');
     }
 
     /**
@@ -30,6 +31,7 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
         $produk = new Produk();
         $produk->nama = $request->input('nama');
         $produk->jenis = $request->input('jenis');
@@ -40,10 +42,11 @@ class ProdukController extends Controller
             $request->file('foto')->move('fotoBarang/', $request->file('foto')->getClientOriginalName());    
             $produk->foto = $request->file('foto')->getClientOriginalName();
         }
+        $produk->user()->associate($user);
     
         $produk->save();
     
-        return redirect('/dashboard');
+        return redirect('/produks');
     }
     
     
@@ -55,9 +58,15 @@ class ProdukController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
+{
+    $product = produk::find($id);
+
+    if (!$product) {
+        return redirect('/produks')->with('error', 'Product not found.');
     }
+
+    return view('deskripsiproduk', ['product' => $product]);
+}
 
     /**
      * Show the form for editing the specified resource.

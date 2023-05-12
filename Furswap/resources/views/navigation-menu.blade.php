@@ -2,7 +2,7 @@
     <!-- Primary Navigation Menu -->
     <div class=" w-full mx-auto ">
         <div class="grid grid-cols-10 bg-[#003F62] items-center p-5">
-            <a href="{{url('/dashboard')}}"><img class="container scale-[0.75] col-start-2" src="{{asset('images/logo.png')}}"></a>
+            <a href="{{url('/produks')}}"><img class="container scale-[0.75] col-start-2" src="{{asset('images/logo.png')}}"></a>
             <form class="max-w-[1000px] col-start-3 col-end-5">   
                     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
                     <div class="relative">
@@ -135,8 +135,8 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-responsive-nav-link href="{{ route('produks') }}" :active="request()->routeIs('produks')">
+                {{ __('Produks') }}
             </x-responsive-nav-link>
         </div>
 

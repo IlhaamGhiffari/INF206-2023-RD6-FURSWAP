@@ -26,6 +26,9 @@ Route::get('/', function () {
 
 Route::resource('/produks', ProdukController::class);
 
+Route::get('/produk/{id}', [ProdukController::class, 'show'])->name('produk.show');
+
+Route::redirect('/dashboard', '/produks');
 
 
 
@@ -34,7 +37,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
+    Route::get('/produks', function () {
         return view('dashboard');
-    })->name('dashboard');
+    })->name('produks');
 });

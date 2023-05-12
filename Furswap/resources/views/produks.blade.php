@@ -1,34 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
+<?php
+use App\Models\produk;
+$allproduct = produk::all();
+?>
+<x-app-layout>
+    <div>
+        <h1>Product List</h1>
 
-    <div class="flex-center position-ref full-height">
-        <div class="content">
-            <h1>Here's a list of available products</h1>
-            <table>
-                <thead>
-                    <td>Nama</td>
-                    <td>jenis</td>
-                    <td>foto</td>
-                    <td>deskripsi</td>
-                </thead>
-                <tbody>
-                    @foreach ($allProducts as $product)
-                        <tr>
-                            <td>{{ $product->nama }}</td>
-                            <td class="inner-table">{{ $product->jenis }}</td>
-                            <td class="inner-table">
-                                <img src="{{ asset('fotoBarang/'.$product->foto) }}" alt="" class="w-4/12">
-                            </td>
-                            <td class="inner-table">{{ $product->deskripsi }}</td>
-                        </tr>
-                    @endforeach
-</body>
-</html>
+        @foreach ($allproduct as $product)
+            <div>
+                <h3>{{ $product->nama }}</h3>
+                <p>Type: {{ $product->jenis }}</p>
+                <p>Quantity: {{ $product->jumlah }}</p>
+                <p>Description: {{ $product->deskripsi }}</p>
+                <a href="{{ route('produk.show', $product->id) }}">View Details</a>
+            </div>
+            <hr>
+        @endforeach
+    </div>
+</x-app-layout>
