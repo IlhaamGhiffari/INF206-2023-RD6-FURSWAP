@@ -10,8 +10,7 @@
                 <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-[#EDA415] hover:bg-[#F79427] focus:ring-[#EDA415] focus:outline-none font-medium rounded-lg text-sm px-4 py-2">Search</button>
             </div>
     </form>
-    <a href="{{url('/Chat')}}"  class="col-start-7 text-white font-semibold">Chat</a>
-    <div class="col-start-8 max-w-auto text-white items-start font-semibold">transaksi</div>
+    <a href="{{url('/Chat')}}"  class="col-start-8 text-white font-semibold">Chat</a>
     <div class="col-start-9 col-span-2 gap-28 justify-center text-white">@if (Route::has('login'))
             @auth
                 <a href="{{ url('/produks') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>

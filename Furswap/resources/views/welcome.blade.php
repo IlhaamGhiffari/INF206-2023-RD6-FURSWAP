@@ -10,6 +10,10 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 
 </head>
+<?php
+use App\Models\produk;
+$allProduct = produk::all();
+?>
 <body>
     <!-- NavBar -->
     <x-navbar/>
@@ -31,19 +35,10 @@
                     </div>
                     <!-- Item 2 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{asset('images/sofa.jpg')}}"  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                        <img src="{{asset('fotoBarang/images.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     </div>
-                    <!-- Item 3 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{asset('images/sofa.jpg')}}"  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{asset('images/sofa.jpg')}}"  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                    <!-- Item 5 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{asset('images/sofa.jpg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                        <img src="{{asset('fotoBarang/download.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     </div>
                 </div>
                 <!-- Slider indicators -->
@@ -74,24 +69,28 @@
     <a href="{{ url('/login') }}">
         <button class="flex items-center">
                 <img class="scale-[0.5]" src="{{asset('images/plus-sign.png')}}">
-        </button>
+       
     </a>
         </div>
     
-    <div class="mx-10">
-        <strong class="text-[#003F62] mx-auto flex justify-start text-[3rem]">Barang Bekas</strong>
-        <div class="flex">
-            <div class=" mx-auto my-10 card rounded-xl w-96 h-96 bg-white drop-shadow-lg flex justify-center">
-                <img class="p-2" src="{{asset('images/sofa.jpg')}}">
-            </div>
-            <div class=" mx-auto my-10 card rounded-xl w-96 h-96 bg-white drop-shadow-lg flex justify-center">
-                <img class="p-1" src="{{asset('images/sofa.jpg')}}">
-            </div>
-            <div class=" mx-auto my-10 card rounded-xl w-96 h-96 bg-white drop-shadow-lg flex justify-center">
-                <img class="p-1"src="{{asset('images/sofa.jpg')}}">
-            </div>
-            <div class=" mx-auto my-10 card rounded-xl w-96 h-96 bg-white drop-shadow-lg flex justify-center">
-                <img class="p-1" src="{{asset('images/sofa.jpg')}}">
+        <div class="mx-10">
+            <strong class="text-[#003F62] mx-auto flex justify-start text-[3rem]">Barang Bekas</strong>
+            <div class="flex">
+                @foreach ($allProduct as $product)
+                <div class=" mx-auto my-10 card rounded-xl w-96 h-96 bg-white drop-shadow-lg flex justify-center">
+                    <div>
+                        @if ($product->foto)
+                        <div>
+                            <img class="max-h-80" src="{{ asset('fotoBarang/' . $product->foto) }}" alt="Product Photo">
+                            <div class="flex  justify-center">{{ $product->nama }}</div>
+                        </div>
+                    @endif
+                        <a href="{{ url('/login') }}">View Details</a>
+                    </div>
+                    <hr>
+                </div>
+                @endforeach
+              
             </div>
         </div>
     </div>

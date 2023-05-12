@@ -13,8 +13,7 @@
                         <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-[#EDA415] hover:bg-[#F79427] focus:ring-[#EDA415] focus:outline-none font-medium rounded-lg text-sm px-4 py-2">Search</button>
                     </div>
             </form>
-            <a href="{{url('/Chat')}}"  class="col-start-7 text-white font-semibold">Chat</a>
-            <div class="col-start-8 max-w-auto text-white items-start font-semibold">transaksi</div>
+            <a href="{{url('/Chat')}}"  class="col-start-8 text-white font-semibold">Chat</a>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
